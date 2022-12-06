@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import ServicesPage from "./components/pages/Services";
+import Footer from "./components/ui/Footer";
+import Header from "./components/ui/Header";
 
-function App() {
+export default function App() {
+  const [currentTab, setCurrentTab] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
+      <Routes>
+        <Route path="/" />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/customsoftware" />
+        <Route path="/mobileapps" />
+        <Route path="/websites" />
+        <Route path="/revolution" />
+        <Route path="/about" />
+        <Route path="/contact" />
+        <Route path="/estimate" />
+      </Routes>
+      <Footer
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
     </div>
   );
 }
-
-export default App;
