@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Small project for the course: "Implement High Fidelity Designs with Material-UI and ReactJS"
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+It's updated using typescript, MUIv5, react 18 and router v6
 
 ## Available Scripts
 
