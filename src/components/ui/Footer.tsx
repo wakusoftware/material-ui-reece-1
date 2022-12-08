@@ -1,8 +1,12 @@
-import { Grid, SxProps } from "@mui/material";
+import { Grid, Hidden, Link, SxProps } from "@mui/material";
 import theme from "../../theme";
-import footerAdornment from "../../assets/Footer Adornment.svg";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+
+import footerAdornment from "../../assets/Footer Adornment.svg";
+import instagram from "../../assets/instagram.svg";
+import facebook from "../../assets/facebook.svg";
+import twitter from "../../assets/twitter.svg";
 
 const styles: {
   footer: SxProps;
@@ -10,7 +14,31 @@ const styles: {
   mainContainer: SxProps;
   link: SxProps;
   gridItem: SxProps;
+  icon: SxProps;
+  socialContainer: SxProps;
 } = {
+  socialContainer: {
+    position: "absolute",
+    marginTop: "7em",
+    marginLeft: "59em",
+    [theme.breakpoints.down("lg")]: {
+      marginTop: "7em",
+      marginLeft: "1em",
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: "5em",
+      marginLeft: "1em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "2em",
+      marginLeft: "0.5em",
+    },
+  },
+  icon: {
+    height: "3m",
+    width: "3em",
+    "&:hover": { cursor: "pointer !important" },
+  },
   footer: {
     backgroundColor: theme.palette.primary.main,
     width: "100%",
@@ -47,168 +75,208 @@ function Footer(props: any) {
   const navigate = useNavigate();
   return (
     <Box sx={styles.footer}>
-      <Grid container sx={styles.mainContainer} justifyContent="center">
-        <Grid item sx={styles.gridItem}>
-          <Grid container spacing={2} direction="column">
-            <Grid
-              item
-              onClick={() => {
-                navigate("/");
-                props.setCurrentTab(0);
-              }}
-              sx={styles.link}
-            >
-              Home
+      <Hidden lgDown>
+        <Grid container sx={styles.mainContainer} justifyContent="center">
+          <Grid item sx={styles.gridItem}>
+            <Grid container spacing={2} direction="column">
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/");
+                  props.setCurrentTab(0);
+                }}
+                sx={styles.link}
+              >
+                Home
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item sx={styles.gridItem}>
+            <Grid container spacing={2} direction="column">
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/services");
+                  props.setCurrentTab(1);
+                  props.setSelectedIndex(0);
+                }}
+                sx={styles.link}
+              >
+                Services
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/customsoftware");
+                  props.setCurrentTab(1);
+                  props.setSelectedIndex(1);
+                }}
+                sx={styles.link}
+              >
+                Custom Software Development
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/mobileapps");
+                  props.setCurrentTab(1);
+                  props.setSelectedIndex(2);
+                }}
+                sx={styles.link}
+              >
+                Mobile App Development
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/websites");
+                  props.setCurrentTab(1);
+                  props.setSelectedIndex(3);
+                }}
+                sx={styles.link}
+              >
+                Website Development
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item sx={styles.gridItem}>
+            <Grid container spacing={2} direction="column">
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/revolution");
+                  props.setCurrentTab(2);
+                }}
+                sx={styles.link}
+              >
+                The Revolution
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/revolution");
+                  props.setCurrentTab(2);
+                }}
+                sx={styles.link}
+              >
+                Vision
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/revolution");
+                  props.setCurrentTab(2);
+                }}
+                sx={styles.link}
+              >
+                Technology
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/revolution");
+                  props.setCurrentTab(2);
+                }}
+                sx={styles.link}
+              >
+                Process
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item sx={styles.gridItem}>
+            <Grid container spacing={2} direction="column">
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/about");
+                  props.setCurrentTab(3);
+                }}
+                sx={styles.link}
+              >
+                About Us
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/about");
+                  props.setCurrentTab(3);
+                }}
+                sx={styles.link}
+              >
+                History
+              </Grid>
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/about");
+                  props.setCurrentTab(3);
+                }}
+                sx={styles.link}
+              >
+                Team
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item sx={styles.gridItem}>
+            <Grid container spacing={2} direction="column">
+              <Grid
+                item
+                onClick={() => {
+                  navigate("/contact");
+                  props.setCurrentTab(4);
+                }}
+                sx={styles.link}
+              >
+                Contact Us
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item sx={styles.gridItem}>
-          <Grid container spacing={2} direction="column">
-            <Grid
-              item
-              onClick={() => {
-                navigate("/services");
-                props.setCurrentTab(1);
-                props.setSelectedIndex(0);
-              }}
-              sx={styles.link}
-            >
-              Services
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/customsoftware");
-                props.setCurrentTab(1);
-                props.setSelectedIndex(1);
-              }}
-              sx={styles.link}
-            >
-              Custom Software Development
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/mobileapps");
-                props.setCurrentTab(1);
-                props.setSelectedIndex(2);
-              }}
-              sx={styles.link}
-            >
-              Mobile App Development
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/websites");
-                props.setCurrentTab(1);
-                props.setSelectedIndex(3);
-              }}
-              sx={styles.link}
-            >
-              Website Development
-            </Grid>
-          </Grid>
+      </Hidden>
+      <Grid container>
+        <Grid item>
+          <Box
+            component="img"
+            alt="black decorative"
+            src={footerAdornment}
+            sx={styles.adornment}
+          />
         </Grid>
-        <Grid item sx={styles.gridItem}>
-          <Grid container spacing={2} direction="column">
-            <Grid
-              item
-              onClick={() => {
-                navigate("/revolution");
-                props.setCurrentTab(2);
-              }}
-              sx={styles.link}
-            >
-              The Revolution
+        <Grid item>
+          <Grid container spacing={2} sx={styles.socialContainer}>
+            <Grid item>
+              <Link href="https://www.facebook.com" target="_blank">
+                <Box
+                  component="img"
+                  alt="facebook logo"
+                  src={facebook}
+                  sx={styles.icon}
+                />
+              </Link>
             </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/revolution");
-                props.setCurrentTab(2);
-              }}
-              sx={styles.link}
-            >
-              Vision
+            <Grid item>
+              <Link href="https://www.instagram.com" target="_blank">
+                <Box
+                  component="img"
+                  alt="instagram logo"
+                  src={instagram}
+                  sx={styles.icon}
+                />
+              </Link>
             </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/revolution");
-                props.setCurrentTab(2);
-              }}
-              sx={styles.link}
-            >
-              Technology
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/revolution");
-                props.setCurrentTab(2);
-              }}
-              sx={styles.link}
-            >
-              Process
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item sx={styles.gridItem}>
-          <Grid container spacing={2} direction="column">
-            <Grid
-              item
-              onClick={() => {
-                navigate("/about");
-                props.setCurrentTab(3);
-              }}
-              sx={styles.link}
-            >
-              About Us
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/about");
-                props.setCurrentTab(3);
-              }}
-              sx={styles.link}
-            >
-              History
-            </Grid>
-            <Grid
-              item
-              onClick={() => {
-                navigate("/about");
-                props.setCurrentTab(3);
-              }}
-              sx={styles.link}
-            >
-              Team
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item sx={styles.gridItem}>
-          <Grid container spacing={2} direction="column">
-            <Grid
-              item
-              onClick={() => {
-                navigate("/contact");
-                props.setCurrentTab(4);
-              }}
-              sx={styles.link}
-            >
-              Contact Us
+            <Grid item>
+              <Link href="https://www.twitter.com" target="_blank">
+                <Box
+                  component="img"
+                  alt="twitter logo"
+                  src={twitter}
+                  sx={styles.icon}
+                />
+              </Link>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Box
-        component="img"
-        alt="black decorative"
-        src={footerAdornment}
-        sx={styles.adornment}
-      />
     </Box>
   );
 }

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import ContactPage from "./components/pages/ContactPage";
+import LandingPage from "./components/pages/LandingPage";
+import SandBoxPage from "./components/pages/SandBoxPage";
 import ServicesPage from "./components/pages/Services";
 import Footer from "./components/ui/Footer";
 import Header from "./components/ui/Header";
@@ -16,14 +19,14 @@ export default function App() {
         setSelectedIndex={setSelectedIndex}
       />
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/customsoftware" />
         <Route path="/mobileapps" />
         <Route path="/websites" />
         <Route path="/revolution" />
-        <Route path="/about" />
-        <Route path="/contact" />
+        <Route path="/about" element={<SandBoxPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/estimate" />
       </Routes>
       <Footer
